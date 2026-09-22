@@ -21,5 +21,4 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             npm install
-            pkill -f "node server.js" || true
-            nohup node server.js > app.log 2>&1 &
+            pm2 restart aws-node-app || pm2 start server.js --name aws-node-app
